@@ -17,6 +17,7 @@ class GeneralFactory: NSObject {
         _etbtnLeft.contentHorizontalAlignment = .Left
         _etbtnLeft.setTitleColor(MainColor, forState: .Normal)
         _etbtnLeft.titleLabel?.font = UIFont(name: fontName, size: 14)
+        _etbtnLeft.tag = 1234
         target.view.addSubview(_etbtnLeft)
 
         let _etbtnRight = UIButton(frame: CGRectMake(ScreenWidth-40-10,20,40,20))
@@ -24,6 +25,7 @@ class GeneralFactory: NSObject {
         _etbtnRight.contentHorizontalAlignment = .Right
         _etbtnRight.setTitleColor(MainColor, forState: .Normal)
         _etbtnRight.titleLabel?.font = UIFont(name: fontName, size: 14)
+        _etbtnRight.tag = 1235
         target.view.addSubview(_etbtnRight)
         
         _etbtnLeft.addTarget(target, action: Selector("efOnClickLeft"), forControlEvents: .TouchUpInside)

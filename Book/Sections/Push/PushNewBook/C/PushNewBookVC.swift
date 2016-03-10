@@ -18,6 +18,16 @@ class PushNewBookVC: UIViewController ,BookTitleDelegate,PhotoPickerDelegate,VPI
     
     var Book_Title:String = ""
     
+    var Score:LDXScore?
+    
+    /**
+     是否显示⭐️⭐️⭐️
+     */
+    var showStars = false//默认不显示
+    
+    var type = "文学"
+    var detailType = "文学"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
@@ -40,10 +50,31 @@ class PushNewBookVC: UIViewController ,BookTitleDelegate,PhotoPickerDelegate,VPI
         //3.初始化数据
         self.titleArray = ["标题","评分","分类","书评"]
         
+        //4.初始化✨
+        self.Score = LDXScore(frame: CGRectMake(100,10,100,22))
+        self.Score?.isSelect     = true
+        self.Score?.normalImg    = UIImage(named: "btn_star_evaluation_normal")
+        self.Score?.highlightImg = UIImage(named: "btn_star_evaluation_press")
+        self.Score?.max_star     = 5
+        self.Score?.show_star    = 5
     }
-    
+    /**
+     Top Left action
+     */
+    func efOnClickLeft(){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    /**
+     Top Right action
+     */
+    func efOnClickRight(){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    deinit{
+        print("pushNewVC reallse")
     }
     
     /**
@@ -103,28 +134,42 @@ class PushNewBookVC: UIViewController ,BookTitleDelegate,PhotoPickerDelegate,VPI
         cell.textLabel?.text = self.titleArray[indexPath.row]
         cell.textLabel?.font = UIFont(name: fontName, size: 15)
         cell.detailTextLabel?.font = UIFont(name: fontName, size: 13)
-        switch indexPath.row {
+        
+        var row = indexPath.row
+        if self.showStars && row > 1 {
+            row--
+        }
+        
+        switch row {
         case 0:
             cell.detailTextLabel?.text = self.Book_Title
             break
-        case 1:
-            
-            break
         case 2:
-            
-            break
-        case 3:
-            
+            cell.detailTextLabel?.text = self.type + "-" + self.detailType
             break
         default:
             break
+        }
+        
+        /**
+        判断是否显示🌟🌟🌟
+        */
+        if self.showStars && indexPath.row == 2 {
+            cell.contentView .addSubview(self.Score!)
         }
         
         return cell
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView?.deselectRowAtIndexPath(indexPath, animated: true)
-        switch indexPath.row {
+        
+        var row = indexPath.row
+        
+        if self.showStars && row>1 {
+            row -= 1
+        }
+        
+        switch row {
         case 0:
             self.tableViewSelectTitle()
             break
@@ -160,7 +205,19 @@ class PushNewBookVC: UIViewController ,BookTitleDelegate,PhotoPickerDelegate,VPI
      *  选择评分
      */
     func tableViewSelectScore(){
+        self.tableView?.beginUpdates()
         
+        let tempIndexPath = [NSIndexPath(forItem: 2, inSection: 0)]
+        if self.showStars {/**删除🌟🌟🌟*/
+            self.titleArray.removeAtIndex(2)
+            self.tableView?.deleteRowsAtIndexPaths(tempIndexPath, withRowAnimation: .Right)
+            self.showStars = false
+        } else {/**插入🌟🌟🌟*/
+            self.titleArray.insert("", atIndex: 2)
+            self.tableView?.insertRowsAtIndexPaths(tempIndexPath, withRowAnimation: .Left)
+            self.showStars = true
+        }
+        self.tableView?.endUpdates()
     }
     /**
      *  选择分类
@@ -168,6 +225,18 @@ class PushNewBookVC: UIViewController ,BookTitleDelegate,PhotoPickerDelegate,VPI
     func tableViewSelectType(){
         let vc = Push_TypeVC()
         GeneralFactory.efAddTitleWithTitle(vc)
+        let btn1 = vc.view.viewWithTag(1234) as?UIButton
+        let btn2 = vc.view.viewWithTag(1235) as?UIButton
+        btn1?.setTitleColor(RGB(38,g: 82,b: 67), forState: .Normal)
+        btn2?.setTitleColor(RGB(38,g: 82,b: 67), forState: .Normal)
+        vc.type = self.type
+        vc.type = self.detailType
+        vc.callBack = ({(type:String,detailType:String)->Void in
+            self.type = type
+            self.detailType = detailType
+            self.tableView?.reloadData()
+        })
+        
         self.presentViewController(vc, animated: true) { () -> Void in
         }
     }
@@ -179,19 +248,5 @@ class PushNewBookVC: UIViewController ,BookTitleDelegate,PhotoPickerDelegate,VPI
         GeneralFactory.efAddTitleWithTitle(vc)
         self.presentViewController(vc, animated: true) { () -> Void in
         }
-    }
-    
-    
-    /**
-     Top Left action
-     */
-    func efOnClickLeft(){
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    /**
-     Top Right action
-     */
-    func efOnClickRight(){
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

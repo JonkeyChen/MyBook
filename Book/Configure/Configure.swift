@@ -17,3 +17,8 @@ let MainColor   = UIColor(colorLiteralRed: 235/255, green: 114/255, blue: 118/25
 
 /**隶变体字体name*/
 let fontName = "Bauhaus ITC"
+
+/**RGB*/
+func RGB(r:Float,g:Float,b:Float)->UIColor {
+    return UIColor(colorLiteralRed: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1)
+}
