@@ -22,3 +22,7 @@ let fontName = "Bauhaus ITC"
 func RGB(r:Float,g:Float,b:Float)->UIColor {
     return UIColor(colorLiteralRed: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1)
 }
+
+
+let AVOSClodAppID  = "OGP6aK5ef5Azq69i9NJaIfJ0-gzGzoHsz"
+let AVOSClodAppKey = "iV3wUlSu9OkUYNJbrfK2NWr0"

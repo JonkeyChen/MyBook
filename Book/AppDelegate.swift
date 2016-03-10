@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        AVOSCloud.setApplicationId("OGP6aK5ef5Azq69i9NJaIfJ0-gzGzoHsz", clientKey: "iV3wUlSu9OkUYNJbrfK2NWr0")
+        AVOSCloud.setApplicationId(AVOSClodAppID, clientKey: AVOSClodAppKey)
         
         let _rankVC   = UINavigationController(rootViewController: RankVC())
         let _searchVC = UINavigationController(rootViewController: SearchVC())

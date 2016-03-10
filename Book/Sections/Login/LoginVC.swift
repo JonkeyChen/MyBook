@@ -12,6 +12,7 @@ class LoginVC: UIViewController {
 
     @IBOutlet weak var evtxfUserName: UITextField!
     @IBOutlet weak var evtxfPassword: UITextField!
+    @IBOutlet weak var evbtnLogin: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,11 +22,13 @@ class LoginVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     @IBAction func efOnClickLogin(sender: AnyObject) {
         
         print("登录")
-        return
         AVUser.logInWithUsernameInBackground(self.evtxfUserName.text, password: self.evtxfPassword.text) { (user,error) -> Void in
             if error == nil {
                 self.dismissViewControllerAnimated(true, completion: { () -> Void in
@@ -43,7 +46,7 @@ class LoginVC: UIViewController {
             }
         }
     }
-
+    
 
 
 }

@@ -51,7 +51,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="efOnClickLogin:" destination="n8p-zU-WDh" eventType="touchUpOutside" id="dqu-Ef-ugN"/>
+                                    <action selector="efOnClickLogin:" destination="n8p-zU-WDh" eventType="touchUpInside" id="g2q-T9-XjT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piR-VV-DYf">
@@ -84,6 +84,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="evbtnLogin" destination="x22-qp-j2R" id="KJF-FL-z0g"/>
                         <outlet property="evtxfPassword" destination="ycD-DV-K2K" id="6gd-IQ-fuL"/>
                         <outlet property="evtxfUserName" destination="nJF-bY-WDQ" id="9Nn-5l-LVA"/>
                     </connections>
@@ -95,7 +96,7 @@
         <!--RegisterVC-->
         <scene sceneID="cJr-XJ-xYQ">
             <objects>
-                <viewController id="Fsa-Gj-K1W" customClass="RegisterVC" customModule="Book" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" id="Fsa-Gj-K1W" customClass="RegisterVC" customModule="Book" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nzw-yr-01E"/>
                         <viewControllerLayoutGuide type="bottom" id="eoV-bW-deq"/>
@@ -145,7 +146,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="efOnClickRegister:" destination="Fsa-Gj-K1W" eventType="touchUpOutside" id="mk2-pw-y7e"/>
+                                    <action selector="efOnClickRegister:" destination="Fsa-Gj-K1W" eventType="touchUpInside" id="Usm-ma-Mfq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldk-eG-uIE">
@@ -158,7 +159,7 @@
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="efOnClickClose:" destination="Fsa-Gj-K1W" eventType="touchUpOutside" id="mly-4Q-jYs"/>
+                                    <action selector="efOnClickClose:" destination="Fsa-Gj-K1W" eventType="touchUpInside" id="BNb-F8-KeN"/>
                                 </connections>
                             </button>
                         </subviews>
