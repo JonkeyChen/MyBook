@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7CB350E71C915CC300FD2624 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB350E61C915CC300FD2624 /* Login.storyboard */; };
+		7CB350E91C915F6300FD2624 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB350E81C915F6300FD2624 /* LoginVC.swift */; };
+		7CB350EB1C915F7000FD2624 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB350EA1C915F7000FD2624 /* RegisterVC.swift */; };
+		7CB350F01C91655800FD2624 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7CB350ED1C91655700FD2624 /* ProgressHUD.bundle */; };
+		7CB350F11C91655800FD2624 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB350EF1C91655800FD2624 /* ProgressHUD.m */; };
 		7CB3690A1C8FFCFB000DBC6D /* GeneralFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB369091C8FFCFB000DBC6D /* GeneralFactory.swift */; };
 		7CB369101C90069F000DBC6D /* 隶变体.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CB3690E1C90069F000DBC6D /* 隶变体.ttf */; };
 		7CB369171C9006BF000DBC6D /* PushNewBookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB369131C9006BF000DBC6D /* PushNewBookVC.swift */; };
@@ -77,6 +82,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7CB350E61C915CC300FD2624 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		7CB350E81C915F6300FD2624 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		7CB350EA1C915F7000FD2624 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		7CB350ED1C91655700FD2624 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		7CB350EE1C91655800FD2624 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		7CB350EF1C91655800FD2624 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		7CB369091C8FFCFB000DBC6D /* GeneralFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralFactory.swift; sourceTree = "<group>"; };
 		7CB3690E1C90069F000DBC6D /* 隶变体.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "隶变体.ttf"; sourceTree = "<group>"; };
 		7CB369131C9006BF000DBC6D /* PushNewBookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNewBookVC.swift; sourceTree = "<group>"; };
@@ -175,6 +186,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7CB350E51C915CAC00FD2624 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7CB350E61C915CC300FD2624 /* Login.storyboard */,
+				7CB350E81C915F6300FD2624 /* LoginVC.swift */,
+				7CB350EA1C915F7000FD2624 /* RegisterVC.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7CB350EC1C91655700FD2624 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				7CB350ED1C91655700FD2624 /* ProgressHUD.bundle */,
+				7CB350EE1C91655800FD2624 /* ProgressHUD.h */,
+				7CB350EF1C91655800FD2624 /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		7CB369041C8FFC44000DBC6D /* Factory */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				7CC549611C9122BC0029D590 /* Bridging.h */,
+				7CB350EC1C91655700FD2624 /* ProgressHUD */,
 				7CC5498E1C9158E80029D590 /* XKeyBoard */,
 				7CC549871C9143340029D590 /* IGLDropDownMenu */,
 				7CC549621C913B6F0029D590 /* AKSegmentedControl */,
@@ -395,12 +427,13 @@
 		7CEB7A781C8FC73300741881 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				7CB369041C8FFC44000DBC6D /* Factory */,
+				7CB350E51C915CAC00FD2624 /* Login */,
 				7CEB7A791C8FC73300741881 /* Circle */,
 				7CEB7A7A1C8FC73300741881 /* More */,
 				7CEB7A7B1C8FC73300741881 /* Push */,
 				7CEB7A7C1C8FC73300741881 /* Rank */,
 				7CEB7A7D1C8FC73300741881 /* Search */,
+				7CB369041C8FFC44000DBC6D /* Factory */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -607,8 +640,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CB350F01C91655800FD2624 /* ProgressHUD.bundle in Resources */,
 				7CC549851C913B700029D590 /* star-icon.png in Resources */,
 				7CC549861C913B700029D590 /* star-icon@2x.png in Resources */,
+				7CB350E71C915CC300FD2624 /* Login.storyboard in Resources */,
 				7CC549831C913B700029D590 /* social-icon.png in Resources */,
 				7CC5495F1C91223E0029D590 /* btn_star_evaluation_press.png in Resources */,
 				7CC5497B1C913B700029D590 /* segmented-bg-pressed-right.png in Resources */,
@@ -653,6 +688,7 @@
 			files = (
 				7CC549761C913B700029D590 /* AKSegmentedControl.m in Sources */,
 				7CB3690A1C8FFCFB000DBC6D /* GeneralFactory.swift in Sources */,
+				7CB350E91C915F6300FD2624 /* LoginVC.swift in Sources */,
 				7CEB7A851C8FC78200741881 /* RankVC.swift in Sources */,
 				7CB369201C90071B000DBC6D /* JVFloatLabeledTextField.m in Sources */,
 				7CB369181C9006BF000DBC6D /* BookTitleView.swift in Sources */,
@@ -664,11 +700,13 @@
 				7CC5498C1C9143340029D590 /* IGLDropDownItem.m in Sources */,
 				7CC549911C9158E80029D590 /* XKeyBoard.m in Sources */,
 				7CB3692A1C902A94000DBC6D /* Push_TitleVC.swift in Sources */,
+				7CB350F11C91655800FD2624 /* ProgressHUD.m in Sources */,
 				7CEB7A4A1C8FBDAF00741881 /* AppDelegate.swift in Sources */,
 				7CB369211C90071B000DBC6D /* JVFloatLabeledTextView.m in Sources */,
 				7CEB7A7F1C8FC75900741881 /* CircleVC.swift in Sources */,
 				7CEB7A811C8FC76A00741881 /* MoreVC.swift in Sources */,
 				7CEB7A871C8FC78A00741881 /* SearchVC.swift in Sources */,
+				7CB350EB1C915F7000FD2624 /* RegisterVC.swift in Sources */,
 				7CB369241C900BF8000DBC6D /* PhotoPickerVC.swift in Sources */,
 				7CB3692E1C902AC4000DBC6D /* Push_DescriptionVC.swift in Sources */,
 				7CC549601C91223E0029D590 /* LDXScore.m in Sources */,

@@ -27,6 +27,8 @@ class PushNewBookVC: UIViewController ,BookTitleDelegate,PhotoPickerDelegate,VPI
     
     var type = "文学"
     var detailType = "文学"
+    var Book_Description:String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,6 +149,12 @@ class PushNewBookVC: UIViewController ,BookTitleDelegate,PhotoPickerDelegate,VPI
         case 2:
             cell.detailTextLabel?.text = self.type + "-" + self.detailType
             break
+        case 4:
+            cell.accessoryType = .None
+            let commentView = UITextView(frame: CGRectMake(4, 4, ScreenWidth-8, 80))
+            commentView.text = self.Book_Description
+            cell.addSubview(commentView)
+            break
         default:
             break
         }
@@ -187,6 +195,15 @@ class PushNewBookVC: UIViewController ,BookTitleDelegate,PhotoPickerDelegate,VPI
             
         }
         
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if self.showStars && indexPath.row > 4 {
+            return 88
+        } else if !self.showStars && indexPath.row > 3 {
+            return 88
+        } else {
+            return 44
+        }
     }
     /**
      *  选择标题
@@ -246,7 +263,27 @@ class PushNewBookVC: UIViewController ,BookTitleDelegate,PhotoPickerDelegate,VPI
     func tableViewSelectDescription(){
         let vc = Push_DescriptionVC()
         GeneralFactory.efAddTitleWithTitle(vc)
+        vc.evtxvWrite?.text = self.Book_Description
+        vc.callBack = ({(description_:String) -> Void in
+            self.Book_Description = description_
+            
+            if self.titleArray.last == "" {
+                self.titleArray.removeLast()
+            }
+            if description_ != "" {
+                self.titleArray.append("")
+            }
+            
+            self.tableView?.reloadData()
+            
+            
+        })
         self.presentViewController(vc, animated: true) { () -> Void in
         }
     }
 }
+
+
+
+
+
